@@ -4,7 +4,7 @@ This repo may eventually become a web application to display genetics data for O
 ## Visualisation templates
 The *ux/visualisation templates* directory contains brief summaries of known standard representations for different types of data. Hopefully if we collate these as a pattern library, we can start to derive the eventual web application navigation.
 
-* [Manhattan plot](visualisation-templates/manhattan-plot.md)
+* [Manhattan plot](ux/visualisation-templates/manhattan-plot.md)
 * PheWAS plot
 * Linkage disequilibrium plot
 * Triple box plot
