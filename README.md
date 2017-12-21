@@ -11,4 +11,13 @@ The *ux/visualisation templates* directory contains brief summaries of known sta
 * Observed vs expected deviation plot
 * Volcano plot
 * eQTL punchcard plot
+
+...
+
+## Inspiration
+What sites are highly used or display genetics data well?
+* http://locuszoom.sph.umich.edu/
+* http://fuma.ctglab.nl/
+* http://big.stats.ox.ac.uk/
+
 ...
