@@ -20,5 +20,8 @@ What sites are highly used or display genetics data well?
 * http://fuma.ctglab.nl/
 * http://big.stats.ox.ac.uk/
 * http://circos.ca/
+* https://apps.broadinstitute.org/genets
+* http://exac.broadinstitute.org/gene/ENSG00000169174
+* http://gnomad.broadinstitute.org/gene/ENSG00000169174
 
 ...
