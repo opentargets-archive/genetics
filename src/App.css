@@ -27,5 +27,23 @@
   to { transform: rotate(360deg); }
 }
 
+.Entity__target {
+  color: green;
+}
+.Entity__disease {
+  color: red;
+}
+.Entity__variant {
+  color: blue;
+}
+
+.ui.card.hidden {
+  display: none;
+}
+
+.ui.card.fullscreen {
+  width: 100%;
+  min-height: calc(100vh - 265px); /* TODO: 265px should be header + footer height */
+}
 
 @import '~antd/dist/antd.css';

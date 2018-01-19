@@ -7,9 +7,14 @@ import Menu from './Menu';
 import 'semantic-ui-css/semantic.min.css';
 import PostgapTable from './tables/PostgapTable';
 
-import { Card, Label, Statistic } from 'semantic-ui-react';
+import { Card, Label, Statistic, Container, Header } from 'semantic-ui-react';
 import * as V from 'victory';
 import PostgapChart from './charts/PostgapChart';
+import EntitySearch from './EntitySearch';
+import EntitySelect from './EntitySelect';
+import EntitySet from './EntitySet';
+import Fullscreenable from './Fullscreenable';
+import FullscreenableGroup from './FullscreenableGroup';
 
 class App extends Component {
   render() {
@@ -23,11 +28,36 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
 
+
+
+        <Container blue>
+
+        <FullscreenableGroup>
+          <Fullscreenable id='first'>
+            <Statistic.Group size='small' align='center'>
+              <Statistic label='Allele' value='A/G'></Statistic>
+              <Statistic label='MAF' value='0.44%'></Statistic>
+            </Statistic.Group>
+          
+          </Fullscreenable>
+          <Fullscreenable id='second'>B</Fullscreenable>
+        </FullscreenableGroup>
+
+{/* 
         <Card.Group itemsPerRow={2}>
           <Card>
-            {/* <Card.Title>
-              Key
-            </Card.Title> */}
+            <Card.Content align={'left'}>
+              <EntitySearch />
+            </Card.Content>
+          </Card>
+
+          <Card>
+            <Card.Content align={'left'}>
+              <EntitySelect />
+            </Card.Content>
+          </Card>
+
+          <Card>
             <Card.Content align={'left'}>
             <Label basic size={'mini'} color='blue'>Blue</Label>
             <Label color='blue'>Blue</Label>
@@ -104,10 +134,12 @@ class App extends Component {
           <Card.Content>
             <PostgapTable />
           </Card.Content>
-        </Card>
+        </Card> */}
 
         {/* <Menu /> */}
         
+
+        </Container>
       </div>
     );
   }
