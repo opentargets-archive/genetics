@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button } from 'semantic-ui-react';
+import { Card, Button, Icon } from 'semantic-ui-react';
 
 class Fullscreenable extends React.Component {
     className() {
@@ -9,9 +9,11 @@ class Fullscreenable extends React.Component {
         return (
             <Card className={this.className()}>
                 <Card.Content>
-                    <Button onClick={() => {this.props.isFullscreen ? this.props.viewFullscreen(null) : this.props.viewFullscreen(this.props.id)}}>
-                        {this.props.isFullscreen ? 'Go small!' : 'Go big!'}
-                    </Button>
+                    <Card.Header className='right aligned'>
+                        <Button size='small' basic icon onClick={() => {this.props.isFullscreen ? this.props.viewFullscreen(null) : this.props.viewFullscreen(this.props.id)}}>
+                            <Icon fitted name={this.props.isFullscreen ? 'expand' : 'compress'} />
+                        </Button>
+                    </Card.Header>
                     {this.props.children}
                 </Card.Content>
             </Card>
