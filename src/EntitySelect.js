@@ -34,6 +34,9 @@ class EntitySelect extends React.Component {
             valueKey="id"
             labelKey="name"
             loadOptions={this.fetchEntities}
+            valueRenderer={this.renderValue}
+            arrowRenderer={null}
+            placeholder='Search for a target, disease or variant'
         />
     }
     // loadOptions = (value, callback) => {
@@ -106,6 +109,12 @@ class EntitySelect extends React.Component {
           })
         })
       }
+
+    renderValue (option) {
+        return <strong className={`Entity__${option.type}`}
+            // style={{ color: 'red' }}
+            >{option.name}</strong>;
+	}
 }
 
 export default EntitySelect
