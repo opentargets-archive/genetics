@@ -52,7 +52,8 @@ export default {
       childProps[eventKey] = {
         data: dataProps
       };
-      const text = LabelHelpers.getText(props, datum, index);
+      // const text = LabelHelpers.getText(props, datum, index);
+      const text = (datum.strand === 1) ? `${datum.display_name}>` : `<${datum.display_name}`;
       if (text !== undefined && text !== null || props.events || props.sharedEvents) {
         childProps[eventKey].labels = this.getLabelProps(dataProps, text, style);
       }
@@ -62,10 +63,10 @@ export default {
   },
 
   getLabelProps(dataProps, text, style) {
-    const { x, y1, index, scale, datum, data } = dataProps;
+    const { start, index, scale, datum, data } = dataProps;
     return {
-      y: y1,
-      x,
+      y: 70,
+      x: start,
       text,
       index,
       scale,

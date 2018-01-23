@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { VictoryLine, VictoryBar, VictoryScatter, VictoryZoomContainer, VictoryAxis, VictoryBrushContainer, VictoryChart } from 'victory';
+import { VictoryLine, VictoryLabel, VictoryBar, VictoryScatter, VictoryZoomContainer, VictoryAxis, VictoryBrushContainer, VictoryChart } from 'victory';
 import { addEvents } from 'victory-core';
+import { sortBy } from 'lodash';
 
 import VictoryGene from './VictoryGene';
 
@@ -24,6 +25,45 @@ class Gene extends React.Component {
 
 
 class GeneTrack extends React.Component {
+
+    // partitionSlot(genes) {
+    //     let slot
+    // }
+
+    // addSlotIndices(genes) {
+    //     // let sortedGenes = sortBy(genes, d => d.start);
+    //     let placedGenes = [];
+    //     let remainingGenes = sortBy(genes, d => d.start);
+    //     let slots = [];
+    //     let neededSlots = 0;
+    //     while (remainingGenes.length > 0) {
+    //         let slot = (slots.length > 0) ? slots[slots.length] : {end: -1, genes: []};
+    //         remainingGenes.forEach(gene => {
+    //             if (gene.start > slot.end) {
+    //                 slot.genes.push(gene);
+    //                 slot.end = gene.end;
+    //                 remainingGenes = remainingGenes.slice(1);
+    //                 continue;
+    //             }
+    //         })
+    //         // let gene = remainingGenes[0];
+    //         // if (gene.start > slot.end) {
+    //         //     slot.genes.push(gene);
+    //         //     slot.end = gene.end;
+    //         //     remainingGenes = remainingGenes.slice(1);
+    //         //     continue;
+    //         // }
+            
+    //         // remainingGenes.forEach(gene => {
+    //         //     let slot = 
+    //         //     if ()
+    //         // })
+    //     }
+        
+    //     while (remaining.length > 0) {
+
+    //     }
+    // }
   
     render() {
         console.log(this.props)
@@ -32,6 +72,7 @@ class GeneTrack extends React.Component {
       const { start, end } = this.props.location;
       const chrLength = this.props.chrLength;
       const handleZoom = this.props.handleZoom;
+
 
     //   const canonicals = Object.values(this.props.data).map(d => {
     //       const { Transcript, ...rest } = d;
@@ -55,7 +96,13 @@ class GeneTrack extends React.Component {
             >
 
               {/* {Object.values(this.props.data).map(d => <Gene key={d.id} data={d} />)} */}
-              <VictoryGene data={Object.values(this.props.data)} />
+              <VictoryGene data={Object.values(this.props.data)}
+                // labels={(d) => d.id}
+                // labelComponent={<VictoryLabel 
+                //   // x={d => d.start}
+                //   // dy={d => 20}
+                //   dy={30} />}
+              />
 
 
               {/* {Object.values(this.props.data).map(d => {
