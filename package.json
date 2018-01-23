@@ -29,7 +29,10 @@
     "reselect": "^3.0.1",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.77.1",
-    "victory": "^0.24.5"
+    "victory": "^0.24.5",
+    "victory-chart": "^24.6.1",
+    "victory-core": "^20.6.0",
+    "victory-util": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
