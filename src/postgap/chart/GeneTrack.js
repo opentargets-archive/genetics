@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { VictoryLine, VictoryScatter, VictoryZoomContainer, VictoryAxis, VictoryBrushContainer, VictoryChart } from 'victory';
+import { VictoryLine, VictoryBar, VictoryScatter, VictoryZoomContainer, VictoryAxis, VictoryBrushContainer, VictoryChart } from 'victory';
+import { addEvents } from 'victory-core';
+
+import VictoryGene from './VictoryGene';
 
 class Gene extends React.Component {
     render () {
@@ -17,6 +20,9 @@ class Gene extends React.Component {
     }
 }
 
+// Gene = addEvents(Gene);
+
+
 class GeneTrack extends React.Component {
   
     render() {
@@ -26,6 +32,16 @@ class GeneTrack extends React.Component {
       const { start, end } = this.props.location;
       const chrLength = this.props.chrLength;
       const handleZoom = this.props.handleZoom;
+
+    //   const canonicals = Object.values(this.props.data).map(d => {
+    //       const { Transcript, ...rest } = d;
+    //       const canonical = Transcript.filter(t => (t.is_canonical === 1))[0]
+    //       return {
+    //         canonical,
+    //         ...rest,
+    //       }
+    //   })
+    //   console.log(canonicals);
       return (
         <div>
             <VictoryChart width={900} height={350} scale={{x: "linear"}} domain={{x: [0, chrLength]}}
@@ -38,8 +54,19 @@ class GeneTrack extends React.Component {
               }
             >
 
-              {Object.values(this.props.data).map(d => <Gene key={d.id} data={d} />)}
+              {/* {Object.values(this.props.data).map(d => <Gene key={d.id} data={d} />)} */}
+              <VictoryGene data={Object.values(this.props.data)} />
 
+
+              {/* {Object.values(this.props.data).map(d => {
+                return <VictoryBar key={d.id} data={d} />
+              })} */}
+                {/* <VictoryBar key={d => d.id}
+                    data={canonicals}
+                    x={d => d.canonical.start}
+                    y={0}
+                    width={d => {return (d.canonical.end - d.canonical.start)}}
+                /> */}
 
               {/* <VictoryScatter 
                 data={this.props.data}
