@@ -31,7 +31,7 @@ class PostgapTable extends Component {
     componentDidMount() {
         axios.get('https://master-dot-open-targets-eu-dev.appspot.com/v3/platform/public/evidence/filter?size=1000&datasource=gwas_catalog&datasource=phewas_catalog&fields=unique_association_fields&fields=disease&fields=evidence&fields=variant&fields=target&fields=sourceID&fields=access_level&target=ENSG00000172057&disease=EFO_0000270&expandefo=true')
             .then(response => {
-                console.log(response)
+                // console.log(response)
                 this.setState({data: response.data.data})
             })
     }
@@ -96,7 +96,7 @@ class PostgapTable extends Component {
             if (!filter.value) {
                 return rows;
             } else {
-                console.log(filter)
+                // console.log(filter)
                 const start = filter.value[0];
                 const end = filter.value[1];
                 //   return (start <= row[field]) && (row[field] <= end);
@@ -157,80 +157,88 @@ class PostgapTable extends Component {
                 accessor: d => d.variant.id.split('/')[4],
             },
             {
-                // Header: props => {
-                //     console.log(props);
-                //     // var x = scaleLinear()
-                //     //     .range([0, width]);
-                //     const h = histogram().thresholds(20).domain([0, 1]); //.thresholds(_.range(0, 1, 0.1));
-                //     console.log(h)
-                //     const raw = props.data.map(d => d.score)
-                //     console.log(raw)
-                //     const bins = h(raw)
-                //     console.log(bins)
-                //     // return 'Score';
-                //     return <Sparklines data={bins.map(d => d.length)}>
-                //         <SparklinesBars />
-                //     </Sparklines>
-                // },
-                Header: 'Score',
-                id: 'score',
-                accessor: d => d.evidence.gene2variant.metadata.funcgen.ot_g2v_score,
-                Cell: cellDataWithPrecisionIfPresent,
-                // aggregate: vals => {
-                //     console.log(vals);
-                //     return _.round(_.mean(vals));
-                // }
+                Header: 'Target to Variant',
+                columns: [{
+                    // Header: props => {
+                    //     console.log(props);
+                    //     // var x = scaleLinear()
+                    //     //     .range([0, width]);
+                    //     const h = histogram().thresholds(20).domain([0, 1]); //.thresholds(_.range(0, 1, 0.1));
+                    //     console.log(h)
+                    //     const raw = props.data.map(d => d.score)
+                    //     console.log(raw)
+                    //     const bins = h(raw)
+                    //     console.log(bins)
+                    //     // return 'Score';
+                    //     return <Sparklines data={bins.map(d => d.length)}>
+                    //         <SparklinesBars />
+                    //     </Sparklines>
+                    // },
+                    Header: 'Score',
+                    id: 'score',
+                    accessor: d => d.evidence.gene2variant.metadata.funcgen.ot_g2v_score,
+                    Cell: cellDataWithPrecisionIfPresent,
+                    // aggregate: vals => {
+                    //     console.log(vals);
+                    //     return _.round(_.mean(vals));
+                    // }
+                },
+                {
+                    Header: 'GTEx',
+                    id: 'gtex',
+                    accessor: d => d.evidence.gene2variant.metadata.funcgen.gtex_score,
+                    Cell: cellDataWithPrecisionIfPresent,
+                    Filter: HistogramBrushFilter,
+                    // Filter: SliderFilter,
+                    filterMethod: histogramBrushMethod,
+                    filterAll: true,
+                },
+                {
+                    Header: 'PCHiC',
+                    id: 'pchic',
+                    accessor: d => d.evidence.gene2variant.metadata.funcgen.pchic_score,
+                    Cell: cellDataWithPrecisionIfPresent,
+                    Filter: SliderFilter,
+                    filterMethod: sliderFilterMethodGenerator('pchic'),
+                },
+                {
+                    Header: 'DHS',
+                    id: 'dhs',
+                    accessor: d => d.evidence.gene2variant.metadata.funcgen.dhs_score,
+                    Cell: cellDataWithPrecisionIfPresent,
+                },
+                {
+                    Header: 'Fantom5',
+                    id: 'fantom5',
+                    accessor: d => d.evidence.gene2variant.metadata.funcgen.fantom5_score,
+                    Cell: cellDataWithPrecisionIfPresent,
+                },
+                {
+                    Header: 'Is nearest?',
+                    id: 'nearest',
+                    accessor: d => d.evidence.gene2variant.metadata.funcgen.is_nearest_gene,
+                }]
             },
             {
-                Header: 'GTEx',
-                id: 'gtex',
-                accessor: d => d.evidence.gene2variant.metadata.funcgen.gtex_score,
-                Cell: cellDataWithPrecisionIfPresent,
-                Filter: HistogramBrushFilter,
-                // Filter: SliderFilter,
-                filterMethod: histogramBrushMethod,
-                filterAll: true,
-            },
-            {
-                Header: 'PCHiC',
-                id: 'pchic',
-                accessor: d => d.evidence.gene2variant.metadata.funcgen.pchic_score,
-                Cell: cellDataWithPrecisionIfPresent,
-                Filter: SliderFilter,
-                filterMethod: sliderFilterMethodGenerator('pchic'),
-            },
-            {
-                Header: 'DHS',
-                id: 'dhs',
-                accessor: d => d.evidence.gene2variant.metadata.funcgen.dhs_score,
-                Cell: cellDataWithPrecisionIfPresent,
-            },
-            {
-                Header: 'Fantom5',
-                id: 'fantom5',
-                accessor: d => d.evidence.gene2variant.metadata.funcgen.fantom5_score,
-                Cell: cellDataWithPrecisionIfPresent,
-            },
-            {
-                Header: 'Is nearest?',
-                id: 'nearest',
-                accessor: d => d.evidence.gene2variant.metadata.funcgen.is_nearest_gene,
-            },
-            {
-                Header: 'GWAS Population Size',
-                id: 'gwasPopSize',
-                accessor: d => d.evidence.variant2disease.gwas_sample_size,
-            },
-            {
-                Header: 'GWAS Variant',
-                id: 'gwasVariant',
-                accessor: d => d.evidence.variant2disease.lead_snp_rsid,
-            },
-            {
-                Header: 'GWAS p-value',
-                id: 'gwasPValue',
-                accessor: d => d.evidence.variant2disease.resource_score.value,
-                Cell: cellDataWithPrecisionIfPresent,
+                Header: 'Disease to Variant',
+                columns: [
+                    {
+                        Header: 'GWAS Population Size',
+                        id: 'gwasPopSize',
+                        accessor: d => d.evidence.variant2disease.gwas_sample_size,
+                    },
+                    {
+                        Header: 'GWAS Variant',
+                        id: 'gwasVariant',
+                        accessor: d => d.evidence.variant2disease.lead_snp_rsid,
+                    },
+                    {
+                        Header: 'GWAS p-value',
+                        id: 'gwasPValue',
+                        accessor: d => d.evidence.variant2disease.resource_score.value,
+                        Cell: cellDataWithPrecisionIfPresent,
+                    }
+                ]
             },
             {
                 Header: 'r2',
