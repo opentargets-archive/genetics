@@ -19,7 +19,7 @@ class EntitySelect extends React.Component {
       fetching: false,
     }
     onChange (value) {
-        console.log(value)
+        // console.log(value)
 		this.setState({
 			value: value,
 		});
@@ -60,8 +60,8 @@ class EntitySelect extends React.Component {
           axios.get(`https://rest.ensembl.org/variation/human/${value}?content-type=application/json`).catch(error => (Promise.resolve({error: 'No SNP found'}))),
         ]).then(responses => {
           const [otResponse, ensemblResponse] = responses;
-          console.log(otResponse);
-          console.log(ensemblResponse);
+          // console.log(otResponse);
+          // console.log(ensemblResponse);
           const data = [];
           if (!ensemblResponse.error) {
             const snpInfo = {
