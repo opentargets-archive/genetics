@@ -65,7 +65,7 @@ export default {
   getLabelProps(dataProps, text, style) {
     const { start, index, scale, datum, data } = dataProps;
     return {
-      y: 70,
+      y: 85,
       x: start,
       text,
       index,

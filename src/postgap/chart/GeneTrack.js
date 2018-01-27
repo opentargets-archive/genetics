@@ -7,7 +7,7 @@ import VictoryGene from './VictoryGene';
 
 class Gene extends React.Component {
     render () {
-        console.log(this.props);
+        // console.log(this.props);
         const { x, y } = this.props.scale;
         const d = this.props.data;
         const canonical = d.Transcript.filter(t => (t.is_canonical === 1))[0]
@@ -66,7 +66,7 @@ class GeneTrack extends React.Component {
     // }
   
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         // console.log(this.props.data)
         // const genes = Object.values(this.props.data);
       const { start, end } = this.props.location;
@@ -85,16 +85,20 @@ class GeneTrack extends React.Component {
     //   console.log(canonicals);
       return (
         <div>
-            <VictoryChart width={900} height={350} scale={{x: "linear"}} domain={{x: [0, chrLength]}}
+            <VictoryChart width={900} height={350} scale={{x: "linear"}} domain={{x: [0, chrLength]}} 
+            // padding={0}
+            
               containerComponent={
                 <VictoryZoomContainer responsive={false}
                   zoomDimension="x"
                   zoomDomain={{x: [start, end]}}
                   onZoomDomainChange={handleZoom}
+                  minimumZoom={{x: 1}}
                 />
               }
             >
-
+              {/* <VictoryAxis style={{ axis: {stroke: "none"} }} /> */}
+              {/* <VictoryAxis dependent style={{ axis: {stroke: "none"} }} /> */}
               {/* {Object.values(this.props.data).map(d => <Gene key={d.id} data={d} />)} */}
               <VictoryGene data={Object.values(this.props.data)}
                 // labels={(d) => d.id}

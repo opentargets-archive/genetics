@@ -5,6 +5,7 @@ import VariantTrack from './VariantTrack';
 
 // temporary!
 import { ensemblTranscripts } from './temp';
+import { postgapResponse } from './temp2';
 
 class GenomeCoordinateChart extends React.Component {
 
@@ -30,6 +31,8 @@ class GenomeCoordinateChart extends React.Component {
   
     render() {
       const { start, end } = this.state.location
+
+      
       return (
         <div>
             {/* <VictoryChart width={900} height={350} scale={{x: "linear"}} domain={{x: [0, this.state.chrLength]}}

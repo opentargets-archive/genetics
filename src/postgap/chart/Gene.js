@@ -97,29 +97,29 @@ export default class Gene extends React.Component {
   }
 
   getSpitProps(props) {
-      const { start, end, role, events, className } = props;
+      const { start, end, role, events } = props;
       return assign({
         x1: start,
-        y1: 50,
+        y1: 70,
         x2: end,
-        y2: 50,
-        className,
+        y2: 70,
+        className: 'Gene--spit',
         role
       }, events);
   }
 
   getExonsProps(props) {
-        const { exons, role, events, className } = props;
+        const { exons, role, events } = props;
         return exons.map(exon => {
             return assign({
                 id: exon.id,
                 x: exon.start,
-                y: 50,
+                y: 65,
                 // x2: exon.end,
                 // y2: 0,
                 width: exon.end - exon.start,
                 height: 10,
-                className,
+                className: 'Gene--exon',
                 role
             }, events)
         })
@@ -156,7 +156,6 @@ export default class Gene extends React.Component {
 //   }
 
   render() {
-      console.log(this.props)
     const spitProps = this.getSpitProps(this.props);
     const exonsProps = this.getExonsProps(this.props);
     return React.cloneElement(
