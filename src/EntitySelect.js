@@ -31,6 +31,7 @@ class EntitySelect extends React.Component {
             onChange={this.onChange}
             // onValueClick={this.gotoContributor}
             autoload={false}
+            autosize={false}
             valueKey="id"
             labelKey="name"
             loadOptions={this.fetchEntities}
