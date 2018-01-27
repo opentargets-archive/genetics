@@ -49,34 +49,15 @@ const Menuet = () => (
   {/* <Container text> */}
     <Menu.Item>
       <Image size='mini' src={logo} />
-      {/* <img src={logo} className="App-logo" alt="logo" /> */}
     </Menu.Item>
     <Menu.Item header>
       Open Targets Genetics
-    </Menu.Item>
-    {/* <Menu.Item>
-      <EntitySelect />
-    </Menu.Item> */}
-    {/* <Menu.Menu position>
-      <Menu.Item name='Open Targets Genetics' />
-    </Menu.Menu> */}
-    
+    </Menu.Item>    
     <Menu.Item style={{flexGrow: 1}}>
       <Container fluid>
-      {/* <div> */}
         <EntitySelect />
-      {/* </div> */}
       </Container>
     </Menu.Item>
-
-    {/* <Menu.Menu position='right'>
-      <Menu.Item>
-      <Container>
-        <EntitySelect />
-      </Container>
-      </Menu.Item>
-    </Menu.Menu> */}
-    
   {/* </Container> */}
 </Menu>  
 )
