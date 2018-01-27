@@ -40,7 +40,7 @@ class BrowserChart extends React.Component {
                 style={{
                   data: {stroke: "tomato"}
                 }}
-                data={[                  
+                data={[
                   {x: 109167885, y: 125},
                   {x: 109197885, y: 257},
                   {x: 109267885, y: 345},
@@ -50,7 +50,7 @@ class BrowserChart extends React.Component {
                   {x: 109489885, y: 270},
                   {x: 109567885, y: 470}
                 ]}
-              />  
+              />
             </VictoryChart>
         </div>
       );
