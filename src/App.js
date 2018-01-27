@@ -45,7 +45,7 @@ const TestRouting = ({ match, location }) => {
 }
 
 const Menuet = () => (
-<Menu inverted>
+<Menu inverted attached>
   {/* <Container text> */}
     <Menu.Item>
       <Image size='mini' src={logo} />
