@@ -46,4 +46,14 @@
   min-height: calc(100vh - 265px); /* TODO: 265px should be header + footer height */
 }
 
+.Gene--spit {
+  stroke: red;
+  stroke-width: 3px;
+}
+.Gene--exon {
+  fill: white;
+  stroke: red;
+  stroke-width: 1;
+}
+
 @import '~antd/dist/antd.css';
