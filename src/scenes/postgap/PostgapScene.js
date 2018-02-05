@@ -3,6 +3,7 @@ import queryString from 'query-string';
 import axios from 'axios';
 import _ from 'lodash';
 
+import PostgapBrowser from './browser/PostgapBrowser';
 import PostgapTable from './PostgapTable';
 
 function transformEvidenceString(r) {
@@ -61,6 +62,26 @@ class PostgapScene extends Component {
         })
     }
   
+    // loadInitialRegion(entities) {
+    //     const targets = entities.filter(d => (d.type === 'target')).map(d => d.id)
+    //     // const diseases = entities.filter(d => (d.type === 'disease')).map(d => d.id)
+    //     if (targets.length > 0) {
+    //         const target = targets[0];
+    //         // const query = {
+    //         //     feature: gene,
+    //         // }
+    //         const url = `https://rest.ensembl.org/overlap/id/${target.id}?feature=gene;content-type=application/json`
+    //         console.log(url);
+    //         axios.get(url)
+    //             .then(response => {
+    //                 // console.log(response)
+    //                 const gene = response.data[0]
+    //                 const { start, end, seq_region_name:chrom } = gene;
+    //                 this.setState({chrom, region: { start, end }})
+    //             })
+    //     }
+    // }
+
     componentDidMount() {
       this.loadEvidenceStrings(this.props.entities);
     }
@@ -74,7 +95,8 @@ class PostgapScene extends Component {
     render() {
       if (this.props.entities.length > 0) {
         // return 'Boo'
-        return <PostgapTable data={this.state.evidenceStrings} />
+        return <PostgapBrowser />
+        // return <PostgapTable data={this.state.evidenceStrings} />
       } else {
         return 'Ha'
       }
