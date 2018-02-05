@@ -11,7 +11,7 @@ class EntitySelect extends React.Component {
       this.fetchEntities = debounce(this.fetchEntities, 800);
         // this.fetchEntities = this.fetchEntities.bind(this);
         // this.loadOptions = debounce(this.loadOptions, 800);
-        this.onChange = this.onChange.bind(this);
+      this.onChange = this.onChange.bind(this);
     }
     state = {
       data: [],
@@ -20,6 +20,8 @@ class EntitySelect extends React.Component {
     }
     onChange (value) {
         // console.log(value)
+
+    this.props.onChangeHandler(value);
 		this.setState({
 			value: value,
 		});

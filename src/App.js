@@ -27,7 +27,10 @@ import { Provider } from 'react-redux';
 
 import rootReducer from './store/reducers/postgap.js';
 import GenomeCoordinateChart from './postgap/chart/GenomeCoordinateChart';
+
+import PostgapScene from './scenes/postgap/PostgapScene';
 // import PostgapTable from './tables/PostgapTable';
+import axios from 'axios';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import queryString from 'query-string';
@@ -44,67 +47,93 @@ const TestRouting = ({ match, location }) => {
   )
 }
 
-const Menuet = () => (
-<Menu inverted attached>
-  {/* <Container text> */}
-    <Menu.Item>
-      <Image size='mini' src={logo} />
-    </Menu.Item>
-    <Menu.Item header>
-      Open Targets Genetics
-    </Menu.Item>    
-    <Menu.Item style={{flexGrow: 1}}>
-      <Container fluid>
-        <EntitySelect />
-      </Container>
-    </Menu.Item>
-  {/* </Container> */}
-</Menu>  
-)
-
-class App extends Component {
+class Menuet extends Component {
   render() {
     return (
+      <Menu inverted attached>
+        {/* <Container text> */}
+          <Menu.Item>
+            <Image size='mini' src={logo} />
+          </Menu.Item>
+          <Menu.Item header>
+            Open Targets POSTGAP
+          </Menu.Item>    
+          <Menu.Item style={{flexGrow: 1}}>
+            <Container fluid>
+              <EntitySelect onChangeHandler={this.props.onChangeHandler}/>
+              {/* <EntitySelect /> */}
+            </Container>
+          </Menu.Item>
+        {/* </Container> */}
+      </Menu>  
+    )
+  }
+}
+
+
+
+class App extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      entities: []
+    };
+    this.onEntitiesChange = this.onEntitiesChange.bind(this);
+  }
+
+  onEntitiesChange(value) {
+    this.setState({ entities: value });
+  }
+
+  render() {
+    return (
+      <div>
+        <Menuet onChangeHandler={this.onEntitiesChange}/>
+        <PostgapScene entities={this.state.entities} />
+      </div>
       // <div>
       // <h1>Boo!</h1>
-      <Router>
-      {/* <Root> */}
-      {/* // <Provider store={store}> */}
-      <Menuet />
-      {/* <div className="App">
+      // <Router>
+      // {/* <Root> */}
+      // {/* // <Provider store={store}> */}
 
-      </div> */}
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload. 
-          <Link to={`/postgap/ENSG01?foo=bar`}>Postgap</Link>
-        </p>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload. 
-          <Link to={{pathname:'/postgap/ENSG01', search:'?foo=bar2', state: {x: 3}}}>Postgap</Link>
-        </p>
-        <Route path='/postgap/:geneId' component={TestRouting} /> */}
+     
+      // {/* <div className="App">
+
+        
+
+      // </div> */}
+      //   {/* <header className="App-header">
+      //     <img src={logo} className="App-logo" alt="logo" />
+      //     <h1 className="App-title">Welcome to React</h1>
+      //   </header>
+      //   <p className="App-intro">
+      //     To get started, edit <code>src/App.js</code> and save to reload. 
+      //     <Link to={`/postgap/ENSG01?foo=bar`}>Postgap</Link>
+      //   </p>
+      //   <p className="App-intro">
+      //     To get started, edit <code>src/App.js</code> and save to reload. 
+      //     <Link to={{pathname:'/postgap/ENSG01', search:'?foo=bar2', state: {x: 3}}}>Postgap</Link>
+      //   </p>
+      //   <Route path='/postgap/:geneId' component={TestRouting} /> */}
 
 
-        {/* <Card fluid>
-            <Card.Content align={'left'}>
-              <EntitySelect />
-            </Card.Content>
-          </Card>
+      //   {/* <Card fluid>
+      //       <Card.Content align={'left'}>
+      //         <EntitySelect />
+      //       </Card.Content>
+      //     </Card>
 
-          <Card fluid>
-            <Card.Content>
-              <GenomeCoordinateChart />
-            </Card.Content>
-          </Card> */}
+      //     <Card fluid>
+      //       <Card.Content>
+      //         <GenomeCoordinateChart />
+      //       </Card.Content>
+      //     </Card> */}
 
-      {/* </div> */}
-      {/* </Root> */}
-      </Router>
-      // </div>
+      // {/* </div> */}
+      // {/* </Root> */}
+      // // </Router>
+      // // </div>
           
     );
   }
