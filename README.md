@@ -1,27 +1,18 @@
 # Open Targets Genetics
-This repo may eventually become a web application to display genetics data for Open Targets. Right now, it's preliminary thoughts on UX and architectural decisions.
+This repo is the issue tracker for the Open Targets Genetics project. **All issues should be raised here.**
 
-## Visualisation templates
-The *ux/visualisation templates* directory contains brief summaries of known standard representations for different types of data. Hopefully if we collate these as a pattern library, we can start to derive the eventual web application navigation.
+## Site
+Go to the [Open Targets Genetics site](https://admiring-dubinsky-cb7f95.netlify.com/), which is under development.
 
-* [Manhattan plot](ux/visualisation-templates/manhattan-plot.md)
-* PheWAS plot
-* Linkage disequilibrium plot
-* Triple box plot
-* Observed vs expected deviation plot
-* Volcano plot
-* eQTL punchcard plot
+## Docs
+Go to the [Open Targets Genetics docs](https://opentargets.gitbook.io/open-targets-genetics-documentation/), which is under development.
 
-...
+## Old site
+Go to the previous incarnation, the [Open Targets POSTGAP site](https://postgap.opentargets.io/), which uses output from the [POSTGAP pipeline](https://github.com/ensembl/postgap).
 
-## Inspiration
-What sites are highly used or display genetics data well?
-* http://locuszoom.sph.umich.edu/
-* http://fuma.ctglab.nl/
-* http://big.stats.ox.ac.uk/
-* http://circos.ca/
-* https://apps.broadinstitute.org/genets
-* http://exac.broadinstitute.org/gene/ENSG00000169174
-* http://gnomad.broadinstitute.org/gene/ENSG00000169174
-
-...
+## Other relevant repos
+The project code is distributed across several repos, the most relevant of which are:
+* [genetics-app](https://github.com/opentargets/genetics-app): the front-end react app
+* [genetics-api](https://github.com/opentargets/genetics-api): the graphql api
+* [genetics-pipe](https://github.com/opentargets/genetics-pipe): the data pipeline
+* [genetics-docs](https://github.com/opentargets/genetics-docs): the gitbook docs
