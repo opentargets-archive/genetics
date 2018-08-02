@@ -1,7 +1,7 @@
 ## Title
 Define front-end code repo and package structure for Open Targets Genetics.
 
-## Status
+## Status (one of PROPOSED, ACCEPTED, REJECTED, DEPRECATED, SUPERCEDED)
 ACCEPTED
 
 ## Context
