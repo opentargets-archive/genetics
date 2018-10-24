@@ -16,6 +16,7 @@ The project code is distributed across several repos, the most relevant of which
 * [genetics-api](https://github.com/opentargets/genetics-api): the graphql api
 * [genetics-pipe](https://github.com/opentargets/genetics-pipe): the data pipeline
 * [genetics-docs](https://github.com/opentargets/genetics-docs): the gitbook docs
+* [genetics-backend](https://github.com/opentargets/genetics-backend) scripts to load the data into clickhouse
 
 ## Architectural Decision Records (ADRs)
 What did we decide, why and when? View them [here](https://github.com/opentargets/genetics/tree/master/architectural-decision-records).
