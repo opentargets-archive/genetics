@@ -4,7 +4,7 @@
 
 Open Targets follows the usual open source project conventions for external contributions. Here is a quick rundown:
 
-1. Find an [issue](https://github.com/opentargets/platform/issues?q=is%3Aissue+is%3Aopen) you are interested in addressing or a [feature](https://github.com/opentargets/platform/labels/Kind%3A%20New%20feature) you would like to help building in the [issue tracker repo](https://github.com/opentargets/platform). Consider posting in the issue to inform us about the work you are doing.
+1. Find an [issue](https://github.com/opentargets/genetics/issues?q=is%3Aissue+is%3Aopen) you are interested in addressing or a [feature](https://github.com/opentargets/genetics/labels/Kind%3A%20New%20feature) you would like to help building in the [issue tracker repo](https://github.com/opentargets/genetics). Consider posting in the issue to inform us about the work you are doing.
 
 2. Fork the relevant repository to your GitHub account.
 
