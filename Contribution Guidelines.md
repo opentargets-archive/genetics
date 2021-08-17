@@ -42,7 +42,7 @@ We are using [prettier v1.15.1](https://prettier.io/). Setting this up should mo
 
 # I have questions!
 
-If you have any questions about contributing to Open Targets Platform you can head to our [Slack](https://opentargets-dev.slack.com/archives/C02UV8545), or post in the [issue tracker repo](https://github.com/opentargets/platform/issues).
+If you have any questions about contributing to Open Targets Platform you can head to our [Slack](https://opentargets-dev.slack.com/archives/C02UV8545), or post in the [issue tracker repo](https://github.com/opentargets/genetics/issues).
 
 Try to ask your question so it's as easy to answer as possible. If you're not sure how to do that these are some good guides:
 
