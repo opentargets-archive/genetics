@@ -1,5 +1,4 @@
 # Open Targets Genetics
-This repo is the issue tracker for the Open Targets Genetics project. **All issues should be raised here.**
 
 ## Site
 Go to the [Open Targets Genetics site](https://genetics.opentargets.org/).
